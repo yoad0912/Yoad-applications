@@ -5,67 +5,94 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
+
+    <Switch
+        android:id="@+id/sw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="יאללה הפועל שלי"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="הצג מצלמה" />
 
-    <Button
-        android:id="@+id/btn1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="164dp"
-        android:layout_marginBottom="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:text="show"/>
+    <ImageView
+        android:id="@+id/camera"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        app:srcCompat="@android:drawable/presence_video_busy"
+        app:layout_constraintStart_toEndOf="@id/sw"
+        app:layout_constraintTop_toTopOf="@id/sw"
+        android:contentDescription="camera icon" />
 
-    <Button
-        android:id="@+id/btn2"
-        android:layout_width="wrap_content"
+    <SeekBar
+        android:id="@+id/sb"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="164dp"
-        android:layout_marginBottom="250dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@id/sw"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="remove"/>
+        android:layout_marginTop="24dp"
+        android:max="100"
+        android:progress="50" />
 
-    <Button
-        android:id="@+id/btn3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="164dp"
-        android:layout_marginBottom="140dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:text="btn3"/>
 
     <ImageView
         android:id="@+id/star"
-        android:layout_width="400dp"
-        android:layout_height="1300dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         app:srcCompat="@android:drawable/btn_star_big_on"
-        tools:layout_editor_absoluteX="59dp"
-        tools:layout_editor_absoluteY="120dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@id/sw"
+        app:layout_constraintBottom_toTopOf="@id/guessInput"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp" />
 
+    <LinearLayout
+        android:id="@+id/buttonsLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/star"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp">
+
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="show"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="remove"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/btn3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="btn3" />
+    </LinearLayout>
+
+    <!-- למטה: קלט ניחוש וכפתור שליחה -->
     <EditText
         android:id="@+id/guessInput"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:hint="נחש מספר (1-10)"
         android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnSend"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="100dp" />
+        android:layout_marginBottom="16dp" />
 
     <Button
         android:id="@+id/btnSend"
@@ -74,6 +101,6 @@
         android:text="שלח ניחוש"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="40dp" />
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
