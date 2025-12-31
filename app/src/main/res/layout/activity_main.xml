@@ -102,5 +102,24 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
+    
+  <LinearLayout
+      xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools = "http://schemas.android.com/tools"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      android:padding="10dp"
+      android:background="@android:color/white"
+      >
+      <TextView
+          android:text="Click me more than 2 seconds"
+           android:textSize="20sp"
+          android:textColor="#d90726"
+          android:layout_gravity = "center"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/tv"
+      />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

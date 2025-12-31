@@ -2,6 +2,7 @@ package com.katza.yoadandroidstudio;
 
 import android.os.Bundle;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -79,5 +80,7 @@ public class DynamicActivity extends AppCompatActivity {
         }
         scrollView.addView(llVertical);
         linearLayout.addView(scrollView);
+
+
     }
 }

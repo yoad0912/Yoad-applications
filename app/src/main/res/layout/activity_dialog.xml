@@ -22,4 +22,16 @@
         android:text="Login"
         android:textSize="30sp"
     />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!" />
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnAlert"
+        android:text="Alert"
+        android:textSize="30sp" />
+
+
 </LinearLayout>

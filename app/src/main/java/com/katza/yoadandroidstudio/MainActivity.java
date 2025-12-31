@@ -1,6 +1,10 @@
 package com.katza.yoadandroidstudio;
 
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -8,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -32,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btnSend;
     int randomNumber;
 
+    TextView tv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +54,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // מגריל מספר רנדומלי בין 1 ל-10
         randomNumber = (int) (Math.random() * 10) + 1;
+
+        tv = (TextView) findViewById(R.id.tv);
+        registerForContextMenu(tv);
     }
 
     private void initViews() {
@@ -109,12 +119,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        sb=findViewById(R.id.sb);
+        sb = findViewById(R.id.sb);
         sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-            float alpha = progress / 100f;
-            star.setAlpha(alpha);
+                float alpha = progress / 100f;
+                star.setAlpha(alpha);
 
             }
 
@@ -142,4 +152,45 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
         }
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.optionmenu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        super.onOptionsItemSelected(item);
+        int id = item.getItemId();
+
+        if (id == R.id.action_login) {
+            Toast.makeText(this, "You selected login", Toast.LENGTH_SHORT).show();
+        } else if (R.id.action_register == id) {
+            Toast.makeText(this, "You selected register", Toast.LENGTH_SHORT).show();
+        } else if (R.id.action_start == id) {
+            Toast.makeText(this, "You selected start", Toast.LENGTH_SHORT).show();
+        }
+        return true;
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.contextmenu_main, menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.firstline) {
+            Toast.makeText(this, "You selected first line", Toast.LENGTH_LONG).show();
+            return true;
+        } else if (item.getItemId() == R.id.secondline) {
+            Toast.makeText(this, "You selected second line", Toast.LENGTH_LONG).show();
+            return true;
+        }
+        return false;
+    }
+
 }
