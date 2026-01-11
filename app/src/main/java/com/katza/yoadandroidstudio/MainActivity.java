@@ -1,5 +1,6 @@
 package com.katza.yoadandroidstudio;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -166,10 +167,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (id == R.id.action_login) {
             Toast.makeText(this, "You selected login", Toast.LENGTH_SHORT).show();
+            Intent intent= new Intent(this,DialogActivity.class);
+            startActivity(intent);
+            finish();
         } else if (R.id.action_register == id) {
             Toast.makeText(this, "You selected register", Toast.LENGTH_SHORT).show();
+            Intent intent= new Intent(this,DynamicActivity.class);
+            startActivity(intent);
+            finish();
         } else if (R.id.action_start == id) {
             Toast.makeText(this, "You selected start", Toast.LENGTH_SHORT).show();
+            Intent intent= new Intent(this,SharedPreferencesActivity.class);
+            startActivity(intent);
+            finish();
         }
         return true;
     }
